@@ -39,7 +39,7 @@ $(document).ready(function () {
         // make a request to API openweahtermap
         // console.log(searchValue)
         $.ajax({
-            url: 'http://api.openweathermap.org/data/2.5/weather?q=' + searchValue + "&units=imperial" + "&appid=" + apiKey,
+            url: 'https://api.openweathermap.org/data/2.5/weather?q=' + searchValue + "&units=imperial" + "&appid=" + apiKey,
             method: "GET",
 
         })
@@ -65,7 +65,7 @@ $(document).ready(function () {
                 var card = $("<div>").addClass("card");
                 var body = $("<div>").addClass("card-body");
                 var title = $("<h3>").addClass("card-title").text(data.name + "(" + new Date().toLocaleDateString() + ")");
-                var image = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + data.weather[0].icon + ".png");
+                var image = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + data.weather[0].icon + ".png");
                 var temp = $("<p>").addClass("card-text").text("Temperature: " + data.main.temp + "F");
                 var humidity = $("<p>").addClass("card-text").text("Humidity: " + data.main.humidity + "%");
                 var wind = $("<p>").addClass("card-text").text("Wind Speed: " + data.wind.speed + "MPH");
@@ -86,7 +86,7 @@ $(document).ready(function () {
 
     function getForecast(searchValue) {
         $.ajax({
-            url: 'http://api.openweathermap.org/data/2.5/forecast?q=' + searchValue + "&appid=" + apiKey + "&units=imperial",
+            url: 'https://api.openweathermap.org/data/2.5/forecast?q=' + searchValue + "&appid=" + apiKey + "&units=imperial",
             method: "GET",
 
         })
@@ -108,7 +108,7 @@ $(document).ready(function () {
                         var card = $("<div>").addClass("card bg-primary text-white");
                         var body = $("<div>").addClass("card-body p-2");
                         var title = $("<h5>").addClass("card-title").text(new Date(data.list[i].dt_txt).toLocaleDateString());
-                        var image = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + data.list[i].weather[0].icon + ".png");
+                        var image = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + data.list[i].weather[0].icon + ".png");
                         var temp = $("<p>").addClass("card-text").text("Temp: " + data.list[i].main.temp + "F");
                         var humidity = $("<p>").addClass("card-text").text("Humidity: " + data.list[i].main.humidity + "%");
 
@@ -133,7 +133,7 @@ $(document).ready(function () {
     function getUVIndex(lat, lon) {
 
         $.ajax({
-            url: 'http://api.openweathermap.org/data/2.5/uvi?' + "&appid=" + apiKey +
+            url: 'https://api.openweathermap.org/data/2.5/uvi?' + "&appid=" + apiKey +
                 '&lat=' + lat + '&lon=' + lon,
             method: "GET",
 
